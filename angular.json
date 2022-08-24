@@ -57,7 +57,14 @@
               ],
               "outputHashing": "all"
             },
-            "development": {
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ],
+              "outputHashing": "all",
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
@@ -74,11 +81,11 @@
             "production": {
               "browserTarget": "mini-challenge:build:production"
             },
-            "development": {
-              "browserTarget": "mini-challenge:build:development"
+            "dev": {
+              "browserTarget": "mini-challenge:build:dev"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "dev"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -106,5 +113,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
