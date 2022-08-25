@@ -1,1 +1,30 @@
-<p>form works!</p>
+<section class="container w-50">
+  <form class="mt-5 p-5 container border rounded" [formGroup]="peopleForm" (submit)="onSubmit()">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" formControlName="nombre"
+        aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Edad</label>
+      <input type="number" class="form-control" id="exampleInputEmail1" formControlName="edad"
+        aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Carrera</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" formControlName="carrera"
+        aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Hobbie</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" formControlName="hobbie"
+        aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div>{{ peopleForm.value | json }}</div>
+</section>
