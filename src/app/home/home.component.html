@@ -1,1 +1,21 @@
-<p>home works!</p>
+
+<section class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Carrera</th>
+        <th scope="col">Hobbie</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of people">
+        <td>{{ person.nombre }}</td>
+        <td>{{ person.edad }}</td>
+        <td>{{ person.carrera }}</td>
+        <td>{{ person.hobbie }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
