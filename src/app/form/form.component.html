@@ -1,30 +1,35 @@
 <section class="container w-50">
   <form class="mt-5 p-5 container border rounded" [formGroup]="peopleForm" (submit)="onSubmit()">
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" formControlName="nombre"
-        aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" [class.is-invalid]="hasErrors(nombre)" formControlName="nombre" id="nombre">
+      <div *ngIf="hasErrors(nombre)">
+        <small class="text-danger d-block" *ngFor="let error of handleError(nombre.errors)">{{ error }}</small>
+      </div>
     </div>
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Edad</label>
-      <input type="number" class="form-control" id="exampleInputEmail1" formControlName="edad"
-        aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <label for="edad" class="form-label">Edad</label>
+      <input type="number" class="form-control" [class.is-invalid]="hasErrors(edad)" formControlName="edad" id="edad">
+      <div class="form-text">Debe ser mayor de edad</div>
+      <div *ngIf="hasErrors(edad)">
+        <small class="text-danger d-block" *ngFor="let error of handleError(edad.errors)">{{ error }}</small>
+      </div>
     </div>
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Carrera</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" formControlName="carrera"
-        aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <label for="carrera" class="form-label">Carrera</label>
+      <input type="text" class="form-control" [class.is-invalid]="hasErrors(carrera)" formControlName="carrera" id="carrera">
+      <div *ngIf="hasErrors(carrera)">
+        <small class="text-danger d-block" *ngFor="let error of handleError(carrera.errors)">{{ error }}</small>
+      </div>
     </div>
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Hobbie</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" formControlName="hobbie"
-        aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <label for="hobbie" class="form-label">Hobbie</label>
+      <input type="text" class="form-control" [class.is-invalid]="hasErrors(hobbie)" formControlName="hobbie" id="hobbie">
+      <div *ngIf="hasErrors(hobbie)">
+        <small class="text-danger d-block" *ngFor="let error of handleError(hobbie.errors)">{{ error }}</small>
+      </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-  <div>{{ peopleForm.value | json }}</div>
+  <div *ngIf="!!formValue">{{ formValue | json }}</div>
 </section>
