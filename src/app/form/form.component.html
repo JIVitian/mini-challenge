@@ -7,6 +7,7 @@
         <small class="text-danger d-block" *ngFor="let error of handleError(nombre.errors)">{{ error }}</small>
       </div>
     </div>
+
     <div class="mb-3">
       <label for="edad" class="form-label">Edad</label>
       <input type="number" class="form-control" [class.is-invalid]="hasErrors(edad)" formControlName="edad" id="edad">
@@ -15,6 +16,7 @@
         <small class="text-danger d-block" *ngFor="let error of handleError(edad.errors)">{{ error }}</small>
       </div>
     </div>
+
     <div class="mb-3">
       <label for="carrera" class="form-label">Carrera</label>
       <input type="text" class="form-control" [class.is-invalid]="hasErrors(carrera)" formControlName="carrera" id="carrera">
@@ -22,6 +24,7 @@
         <small class="text-danger d-block" *ngFor="let error of handleError(carrera.errors)">{{ error }}</small>
       </div>
     </div>
+
     <div class="mb-3">
       <label for="hobbie" class="form-label">Hobbie</label>
       <input type="text" class="form-control" [class.is-invalid]="hasErrors(hobbie)" formControlName="hobbie" id="hobbie">
@@ -29,7 +32,8 @@
         <small class="text-danger d-block" *ngFor="let error of handleError(hobbie.errors)">{{ error }}</small>
       </div>
     </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-  <div *ngIf="!!formValue">{{ formValue | json }}</div>
+  <div *ngIf="!!formValue" class="text-center">{{ formValue | json }}</div>
 </section>
